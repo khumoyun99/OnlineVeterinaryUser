@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_home_graph"
+    app:startDestination="@id/homePage">
+
+    <fragment
+        android:id="@+id/homePage"
+        android:name="com.example.onlineveterinaryuser.presentation.nav_home.HomePage"
+        android:label="Home"
+        tools:layout="@layout/page_home" >
+        <action
+            android:id="@+id/action_homePage_to_aboutScreen"
+            app:destination="@id/aboutScreen" />
+    </fragment>
+    <fragment
+        android:id="@+id/aboutScreen"
+        android:name="com.example.onlineveterinaryuser.presentation.nav_home.screens.AboutHomeScreen"
+        android:label="About"
+        tools:layout="@layout/screen_about_home" >
+        <argument
+            android:name="Animal"
+            app:argType="com.example.onlineveterinaryuser.presentation.nav_home.models.Animal" />
+    </fragment>
+</navigation>

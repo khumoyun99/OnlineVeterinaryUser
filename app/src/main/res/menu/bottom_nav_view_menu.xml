@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/nav_home_graph"
+        android:icon="@drawable/ic_nav_bottom_home"
+        android:title="@string/home" />
+    <item
+        android:id="@+id/nav_animals_graph"
+        android:icon="@drawable/ic_nav_bottom_animals"
+        android:title="@string/animals" />
+    <item
+        android:id="@+id/nav_doctors_graph"
+        android:icon="@drawable/ic_nav_bottom_doctor"
+        android:title="@string/doctors" />
+    <item
+        android:id="@+id/nav_medicine_graph"
+        android:icon="@drawable/ic_nav_bottom_medicine"
+        android:title="@string/medicine" />
+    <item
+        android:id="@+id/nav_profile_graph"
+        android:icon="@drawable/ic_nav_bottom_profile"
+        android:title="@string/profile" />
+
+</menu>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_profile_graph"
+    app:startDestination="@id/profilePage">
+
+    <fragment
+        android:id="@+id/profilePage"
+        android:name="com.example.onlineveterinaryuser.presentation.nav_profile.ProfilePage"
+        android:label="Profile"
+        tools:layout="@layout/page_profile" >
+        <action
+            android:id="@+id/action_profilePage_to_languageProfileScreen"
+            app:destination="@id/languageProfileScreen" />
+    </fragment>
+    <fragment
+        android:id="@+id/languageProfileScreen"
+        android:name="com.example.onlineveterinaryuser.presentation.nav_profile.screens.LanguageProfileScreen"
+        android:label="Language"
+        tools:layout="@layout/screen_language_profile" />
+</navigation>

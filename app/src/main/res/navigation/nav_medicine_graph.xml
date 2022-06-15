@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_medicine_graph"
+    app:startDestination="@id/medicinePage">
+
+    <fragment
+        android:id="@+id/medicinePage"
+        android:name="com.example.onlineveterinaryuser.presentation.nav_medicine.MedicinePage"
+        android:label="Medicine"
+        tools:layout="@layout/page_medicine" >
+        <action
+            android:id="@+id/action_medicinePage_to_infoMedicineScreen"
+            app:destination="@id/infoMedicineScreen" />
+    </fragment>
+    <fragment
+        android:id="@+id/infoMedicineScreen"
+        android:name="com.example.onlineveterinaryuser.presentation.nav_medicine.screens.InfoMedicineScreen"
+        android:label="Info"
+        tools:layout="@layout/screen_info_medicine" >
+        <argument
+            android:name="Medicine"
+            app:argType="com.example.onlineveterinaryuser.presentation.nav_medicine.models.Medicines"
+            app:nullable="true" />
+        <action
+            android:id="@+id/action_infoMedicineScreen_to_medicinePage"
+            app:destination="@id/medicinePage" />
+    </fragment>
+</navigation>

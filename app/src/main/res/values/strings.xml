@@ -1,0 +1,56 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">Online Veterinary User</string>
+    <string name="your_web_client_my_id">535340234356-v4poo64kpmg0h4g7n0ll9ts8if81g14o.apps.googleusercontent.com</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="daryo">
+        <br>Shundan so‘ng Fransiya rahbari ikkinchi muddatga rasman o‘z lavozimiga kirishadi. Makron 24-aprel kuni 58,55 foiz ovoz bilan qayta saylangan edi. Siyosatchining yangi vakolat muddati 14-maydan boshlanadi.
+
+Inauguratsiya marosimi hokimiyatni topshirishni rasmiylashtiradi va Yelisey saroyida, tantanalar zalida bo‘lib o‘tadi. Boshqa ko‘plab mamlakatlardan farqli o‘laroq, Fransiya prezidentining inauguratsiyasida qasamyod qilinmaydi. Xususan, Konstitutsiyaviy Kengash prezidenti Loran Fabius saylovning rasmiy natijalarini e’lon qiladi, so‘ngra prezident Milliy faxriy legionning grossmeysteri sifatida tan olinadi va uning ikkinchi muddati rasman boshlanadi.
+
+Shundan so‘ng Makron nutq so‘zlaydi, keyin voqea sharafiga to‘pdan 21 marta o‘q uziladi, o‘tmishda bu an’anani ikkinchi muddatga saylangan prezidentlarning ayrimlari o‘tkazib yuborgan. Marosim bayroqlarni ko‘tarish va davlat madhiyasi bilan yakunlanadi.
+
+Eslatib o‘tamiz, 25-aprel kuni Makron mamlakatdagi prezidentlik saylovlarida g‘alaba qozongan, uning raqibi Marin Le Pen mag‘lubiyatini tan olgan edi. Fransiyaning amaldagi rahbari g‘alabasi e’lon qilinganidan keyin mamlakatda norozilik namoyishlari boshlandi. Boz ustiga, saylovchilar bilan uchrashuvda Makronga pomidor uloqtirishdi.</br></string>
+    <string name="animals">Animals</string>
+    <string name="home">Home</string>
+    <string name="doctors">Doctors</string>
+    <string name="medicine">Medicine</string>
+    <string name="profile">Profile</string>
+    <string name="info_dogs">The term “domestic dog” refers to any of several hundred breeds of dog in the world today.While these animals vary drastically in appearance, every dog—from the Chihuahua to the Great Dane—is a member of the same species, Canis familiaris.This separates domestic dogs from wild canines, such as coyotes, foxes, and wolves.\n\nDomestic dogs are mostly kept as pets, though many breeds are capable of surviving on their own, whether it’s in a forest or on city streets. A third of all households worldwide have a dog, according to a 2016 consumer insights study. This makes the domestic dog the most popular pet on the planet.\nEvolutionary origins \n\nAll dogs descend from a species of wolf, but not the gray wolf (Canis lupus), like many people assume. In fact, DNA evidence suggests that the now-extinct wolf ancestor to modern dogs was Eurasian. However, scientists are still working to understand exactly what species gave rise to dogs.\n\nWhen dogs broke off from their wild ancestors is also a matter of mystery, but genetics suggest that it occurred between 15,000 and 30,000 years ago.\n\nWhile it’s impossible to say exactly how a wild wolf species became a domesticated dog, most scientists believe the process happened gradually as wolves became more comfortable with humans. Perhaps wolves started down this path simply by eating human scraps. Many generations later, humans might have encouraged wolves to stay near by actively feeding them. Later still, those wolves may have been welcomed into the human home and eventually bred to encourage certain traits. All of this is thought to have unfolded over thousands of years.</string>
+    <string name="type">Type</string>
+    <string name="age">Age</string>
+    <string name="name">Name</string>
+    <string name="color">Color</string>
+    <string name="sort">Sort</string>
+    <string name="animal_type">Animal type</string>
+    <string name="gender">Gender</string>
+    <string name="weight">Weight</string>
+    <string name="width_height">Width/Height</string>
+    <string name="animal_image">Animal image</string>
+    <string name="additions">Additions</string>
+    <string name="add_animal">Add animal</string>
+    <string name="edit">Edit</string>
+    <string name="phone">Phone:</string>
+    <string name="email">Email:</string>
+    <string name="make_an_appointment">Make an appointment</string>
+    <string name="message">Message</string>
+    <string name="ro_yhatdan_o_tish">Ro\'yhatdan o\'tish</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="log_in">Log in</string>
+    <string name="dont_have_an_account_sign_up">Don\'t have an account? <b>Sign Up</b></string>
+    <string name="log_in_with_google">Log in with Google</string>
+    <string name="octoclean">Otoclean Ear Cleaner - bu ortiqcha mum va qoldiqlarni bo\'shatish va olib tashlash uchun mo\'ljallangan, qulay, ishlatish uchun qulay va kam tirnash xususiyati beruvchi quloqlarni tozalash vositasi.</string>
+    <string name="order">Buyurtma berish</string>
+    <string name="phone_number">Phone number:</string>
+    <string name="save">Save</string>
+    <string name="address">Address:</string>
+    <string name="language">Language</string>
+    <string name="english">English</string>
+    <string name="uzbek">Uzbek</string>
+    <string name="profession">Profession</string>
+    <string name="veterinary">Veterinary</string>
+    <string name="work_experience">Work experience</string>
+    <string name="education">Education</string>
+    <string name="dogs">Dogs</string>
+    <string name="cats">Cats</string>
+</resources>

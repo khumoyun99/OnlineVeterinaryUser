@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_animals_graph"
+    app:startDestination="@id/animalsPage">
+
+    <fragment
+        android:id="@+id/animalsPage"
+        android:name="com.example.onlineveterinaryuser.presentation.nav_animals.AnimalsPage"
+        android:label="My animals"
+        tools:layout="@layout/page_animals" >
+        <action
+            android:id="@+id/action_animalsPage_to_addAnimalScreen"
+            app:destination="@id/addAnimalScreen" />
+        <action
+            android:id="@+id/action_animalsPage_to_editAnimalsScreen"
+            app:destination="@id/editAnimalsScreen" />
+    </fragment>
+    <fragment
+        android:id="@+id/addAnimalScreen"
+        android:name="com.example.onlineveterinaryuser.presentation.nav_animals.screens.AddAnimalScreen"
+        android:label="Add animal"
+        tools:layout="@layout/screen_add_animal" />
+    <fragment
+        android:id="@+id/editAnimalsScreen"
+        android:name="com.example.onlineveterinaryuser.presentation.nav_animals.screens.EditAnimalsScreen"
+        android:label="Edit"
+        tools:layout="@layout/screen_edit_animals" />
+</navigation>

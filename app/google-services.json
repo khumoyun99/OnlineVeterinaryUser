@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "535340234356",
+    "firebase_url": "https://fir-auth-8e4ff-default-rtdb.firebaseio.com",
+    "project_id": "fir-auth-8e4ff",
+    "storage_bucket": "fir-auth-8e4ff.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:535340234356:android:74929557645d83f47d4321",
+        "android_client_info": {
+          "package_name": "com.example.onlineveterinaryuser"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "535340234356-kds5oni2ioju58v0jk055cu8vss9610g.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.onlineveterinaryuser",
+            "certificate_hash": "44d5944a5ab11f81e2d0e80f6b025f0b1d0b180f"
+          }
+        },
+        {
+          "client_id": "535340234356-v4poo64kpmg0h4g7n0ll9ts8if81g14o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBbdnVeZ4kVbzqwfOdJn39IuG3acEK23Xc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "535340234356-v4poo64kpmg0h4g7n0ll9ts8if81g14o.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

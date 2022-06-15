@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_doctors_graph"
+    app:startDestination="@id/doctorsPage">
+
+    <fragment
+        android:id="@+id/doctorsPage"
+        android:name="com.example.onlineveterinaryuser.presentation.nav_doctors.DoctorsPage"
+        android:label="Doctors"
+        tools:layout="@layout/page_doctors" >
+        <action
+            android:id="@+id/action_doctorsPage_to_infoDoctorScreen"
+            app:destination="@id/infoDoctorScreen" />
+        <action
+            android:id="@+id/action_doctorsPage_to_messageDoctorScreen"
+            app:destination="@id/messageDoctorScreen" />
+    </fragment>
+    <fragment
+        android:id="@+id/infoDoctorScreen"
+        android:name="com.example.onlineveterinaryuser.presentation.nav_doctors.screens.InfoDoctorScreen"
+        android:label="Doctor"
+        tools:layout="@layout/screen_info_doctor" />
+    <fragment
+        android:id="@+id/messageDoctorScreen"
+        android:name="com.example.onlineveterinaryuser.presentation.nav_doctors.screens.MessageDoctorScreen"
+        android:label="Messages"
+        tools:layout="@layout/screen_message_doctor" />
+</navigation>
