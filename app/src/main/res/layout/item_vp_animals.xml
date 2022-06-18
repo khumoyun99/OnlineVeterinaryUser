@@ -12,7 +12,7 @@
     <ImageView
         android:id="@+id/ivVpAnimals"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="170dp"
         android:adjustViewBounds="true"
         android:scaleType="centerCrop" />
 

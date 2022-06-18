@@ -5,39 +5,41 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingHorizontal="20dp"
-    android:paddingBottom="52dp"
     tools:context=".presentation.nav_animals.screens.AddAnimalScreen">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
+        android:layout_height="wrap_content"
+        android:paddingBottom="150dp">
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/ilType"
-            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
+            android:id="@+id/ilAddType"
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_marginTop="15dp"
             android:background="#EDEBEB"
             android:gravity="center_vertical"
             android:hint="@string/type"
-            app:endIconMode="dropdown_menu"
+            app:endIconMode="clear_text"
             app:layout_constraintTop_toTopOf="parent"
             app:startIconDrawable="@drawable/ic_nav_bottom_animals">
 
-            <com.google.android.material.textfield.MaterialAutoCompleteTextView
-                android:id="@+id/tvAutoType"
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etAddType"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Dog"
+                android:imeOptions="actionNext"
+                android:singleLine="true"
                 android:textColor="@color/add_text_color"
                 android:textSize="20sp" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
+
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/ilName"
+            android:id="@+id/ilAddName"
             style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
             android:layout_width="match_parent"
             android:layout_height="60dp"
@@ -45,23 +47,25 @@
             android:background="#EDEBEB"
             android:gravity="center_vertical"
             android:hint="@string/name"
+            app:endIconMode="clear_text"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ilType"
+            app:layout_constraintTop_toBottomOf="@id/ilAddType"
             app:startIconDrawable="@drawable/ic_nav_bottom_animals">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etName"
+                android:id="@+id/etAddName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Tuzik"
+                android:imeOptions="actionNext"
+                android:singleLine="true"
                 android:textColor="@color/add_text_color"
                 android:textSize="20sp" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/ilAge"
+            android:id="@+id/ilAddAge"
             style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
             android:layout_width="match_parent"
             android:layout_height="60dp"
@@ -69,23 +73,25 @@
             android:background="#EDEBEB"
             android:gravity="center_vertical"
             android:hint="@string/age"
+            app:endIconMode="clear_text"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ilName"
+            app:layout_constraintTop_toBottomOf="@id/ilAddName"
             app:startIconDrawable="@drawable/ic_nav_bottom_animals">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etAge"
+                android:id="@+id/etAddAge"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="2.5"
+                android:imeOptions="actionNext"
+                android:singleLine="true"
                 android:textColor="@color/add_text_color"
                 android:textSize="20sp" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/ilColor"
+            android:id="@+id/ilAddColor"
             style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
             android:layout_width="match_parent"
             android:layout_height="60dp"
@@ -93,23 +99,25 @@
             android:background="#EDEBEB"
             android:gravity="center_vertical"
             android:hint="@string/color"
+            app:endIconMode="clear_text"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ilAge"
+            app:layout_constraintTop_toBottomOf="@id/ilAddAge"
             app:startIconDrawable="@drawable/ic_nav_bottom_animals">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etColor"
+                android:id="@+id/etAddColor"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Black"
+                android:imeOptions="actionNext"
+                android:singleLine="true"
                 android:textColor="@color/add_text_color"
                 android:textSize="20sp" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/ilAnimalType"
+            android:id="@+id/ilAddAnimalType"
             style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
             android:layout_width="match_parent"
             android:layout_height="60dp"
@@ -117,46 +125,49 @@
             android:background="#EDEBEB"
             android:gravity="center_vertical"
             android:hint="@string/animal_type"
+            app:endIconMode="clear_text"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ilColor"
+            app:layout_constraintTop_toBottomOf="@id/ilAddColor"
             app:startIconDrawable="@drawable/ic_nav_bottom_animals">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etAnimalType"
+                android:id="@+id/etAddAnimalType"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Dalmatian"
+                android:imeOptions="actionNext"
+                android:singleLine="true"
                 android:textColor="@color/add_text_color"
                 android:textSize="20sp" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/ilGender"
-            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
+            android:id="@+id/ilAddGender"
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_marginTop="15dp"
             android:background="#EDEBEB"
             android:gravity="center_vertical"
             android:hint="@string/gender"
-            app:endIconMode="dropdown_menu"
-            app:layout_constraintTop_toBottomOf="@id/ilAnimalType"
+            app:endIconMode="clear_text"
+            app:layout_constraintTop_toBottomOf="@id/ilAddAnimalType"
             app:startIconDrawable="@drawable/ic_nav_bottom_animals">
 
-            <com.google.android.material.textfield.MaterialAutoCompleteTextView
-                android:id="@+id/tvGender"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etAddGender"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Male/Female"
+                android:imeOptions="actionNext"
+                android:singleLine="true"
                 android:textColor="@color/add_text_color"
                 android:textSize="20sp" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/ilAnimalWeight"
+            android:id="@+id/ilAddAnimalWeight"
             style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
             android:layout_width="match_parent"
             android:layout_height="60dp"
@@ -164,24 +175,25 @@
             android:background="#EDEBEB"
             android:gravity="center_vertical"
             android:hint="@string/weight"
+            app:endIconMode="clear_text"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ilGender"
+            app:layout_constraintTop_toBottomOf="@id/ilAddGender"
             app:startIconDrawable="@drawable/ic_nav_bottom_animals">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etAnimalWeight"
+                android:id="@+id/etAddAnimalWeight"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:imeOptions="actionNext"
                 android:singleLine="true"
-                android:text="2.5kg"
                 android:textColor="@color/add_text_color"
                 android:textSize="20sp" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/ilAnimalWidthHeight"
+            android:id="@+id/ilAddAnimalWidthHeight"
             style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
             android:layout_width="match_parent"
             android:layout_height="60dp"
@@ -189,35 +201,36 @@
             android:background="#EDEBEB"
             android:gravity="center_vertical"
             android:hint="@string/width_height"
+            app:endIconMode="clear_text"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ilAnimalWeight"
+            app:layout_constraintTop_toBottomOf="@id/ilAddAnimalWeight"
             app:startIconDrawable="@drawable/ic_nav_bottom_animals">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etAnimalWidthHeight"
+                android:id="@+id/etAddAnimalWidthHeight"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:imeOptions="actionNext"
                 android:singleLine="true"
-                android:text="0.5/0.8m"
                 android:textColor="@color/add_text_color"
                 android:textSize="20sp" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/ivAnimalsImage"
+        <ImageView
+            android:id="@+id/ivAddAnimalsImage"
             android:layout_width="200dp"
             android:layout_height="180dp"
             android:layout_marginTop="50dp"
             android:scaleType="centerCrop"
-            android:src="@drawable/img_vet1"
+            android:src="@drawable/ic_profile_person"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ilAnimalWidthHeight" />
+            app:layout_constraintTop_toBottomOf="@id/ilAddAnimalWidthHeight" />
 
         <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/tvAnimalsImageInfo"
+            android:id="@+id/tvAddAnimalsImageInfo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
@@ -226,10 +239,10 @@
             android:textSize="16sp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ivAnimalsImage" />
+            app:layout_constraintTop_toBottomOf="@id/ivAddAnimalsImage" />
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/ilAnimalAdditional"
+            android:id="@+id/ilAddAnimalAdditional"
             style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
             android:layout_width="match_parent"
             android:layout_height="150dp"
@@ -239,20 +252,22 @@
             android:hint="@string/additions"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvAnimalsImageInfo"
+            app:layout_constraintTop_toBottomOf="@id/tvAddAnimalsImageInfo"
             app:startIconDrawable="@drawable/ic_nav_bottom_animals">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etAdditional"
+                android:id="@+id/etAddAdditional"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="start"
+                android:imeOptions="actionDone"
                 android:textColor="@color/add_text_color"
                 android:textSize="20sp" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnAddAnimal"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginHorizontal="10dp"
@@ -269,7 +284,8 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ilAnimalAdditional" />
+            app:layout_constraintTop_toBottomOf="@id/ilAddAnimalAdditional" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

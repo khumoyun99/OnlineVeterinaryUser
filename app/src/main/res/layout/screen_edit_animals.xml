@@ -1,35 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingHorizontal="20dp"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".presentation.nav_animals.screens.EditAnimalsScreen">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
+        android:layout_height="wrap_content"
+        android:paddingBottom="100dp">
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/ilType"
-            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_marginTop="15dp"
             android:background="#EDEBEB"
             android:gravity="center_vertical"
             android:hint="@string/type"
-            app:endIconMode="dropdown_menu"
+            app:endIconMode="clear_text"
             app:layout_constraintTop_toTopOf="parent"
             app:startIconDrawable="@drawable/ic_nav_bottom_animals">
 
-            <com.google.android.material.textfield.MaterialAutoCompleteTextView
-                android:id="@+id/tvAutoType"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etType"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Dog"
                 android:textColor="@color/add_text_color"
                 android:textSize="20sp" />
 
@@ -44,6 +43,7 @@
             android:background="#EDEBEB"
             android:gravity="center_vertical"
             android:hint="@string/name"
+            app:endIconMode="clear_text"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ilType"
@@ -53,7 +53,6 @@
                 android:id="@+id/etName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Tuzik"
                 android:textColor="@color/add_text_color"
                 android:textSize="20sp" />
 
@@ -68,6 +67,7 @@
             android:background="#EDEBEB"
             android:gravity="center_vertical"
             android:hint="@string/age"
+            app:endIconMode="clear_text"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ilName"
@@ -77,11 +77,11 @@
                 android:id="@+id/etAge"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="2.5"
                 android:textColor="@color/add_text_color"
                 android:textSize="20sp" />
 
         </com.google.android.material.textfield.TextInputLayout>
+
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/ilColor"
@@ -92,6 +92,7 @@
             android:background="#EDEBEB"
             android:gravity="center_vertical"
             android:hint="@string/color"
+            app:endIconMode="clear_text"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ilAge"
@@ -101,7 +102,6 @@
                 android:id="@+id/etColor"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Black"
                 android:textColor="@color/add_text_color"
                 android:textSize="20sp" />
 
@@ -116,6 +116,7 @@
             android:background="#EDEBEB"
             android:gravity="center_vertical"
             android:hint="@string/animal_type"
+            app:endIconMode="clear_text"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ilColor"
@@ -125,7 +126,6 @@
                 android:id="@+id/etAnimalType"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Dalmatian"
                 android:textColor="@color/add_text_color"
                 android:textSize="20sp" />
 
@@ -133,22 +133,21 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/ilGender"
-            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_marginTop="15dp"
             android:background="#EDEBEB"
             android:gravity="center_vertical"
             android:hint="@string/gender"
-            app:endIconMode="dropdown_menu"
+            app:endIconMode="clear_text"
             app:layout_constraintTop_toBottomOf="@id/ilAnimalType"
             app:startIconDrawable="@drawable/ic_nav_bottom_animals">
 
-            <com.google.android.material.textfield.MaterialAutoCompleteTextView
-                android:id="@+id/tvGender"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etGender"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Male/Female"
                 android:textColor="@color/add_text_color"
                 android:textSize="20sp" />
 
@@ -163,6 +162,7 @@
             android:background="#EDEBEB"
             android:gravity="center_vertical"
             android:hint="@string/weight"
+            app:endIconMode="clear_text"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ilGender"
@@ -173,7 +173,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:singleLine="true"
-                android:text="2.5kg"
                 android:textColor="@color/add_text_color"
                 android:textSize="20sp" />
 
@@ -188,6 +187,7 @@
             android:background="#EDEBEB"
             android:gravity="center_vertical"
             android:hint="@string/width_height"
+            app:endIconMode="clear_text"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ilAnimalWeight"
@@ -198,7 +198,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:singleLine="true"
-                android:text="0.5/0.8m"
                 android:textColor="@color/add_text_color"
                 android:textSize="20sp" />
 
@@ -236,6 +235,7 @@
             android:background="#EDEBEB"
             android:gravity="start"
             android:hint="@string/additions"
+            app:endIconMode="clear_text"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvAnimalsImageInfo"
@@ -252,14 +252,13 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnEditSave"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginHorizontal="10dp"
             android:layout_marginTop="15dp"
             android:layout_marginBottom="10dp"
             android:backgroundTint="#52CA6C"
-            android:clickable="true"
-            android:focusable="true"
             android:text="@string/edit"
             android:textAllCaps="false"
             android:textColor="@color/white"

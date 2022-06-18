@@ -4,30 +4,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="52dp"
     android:background="@color/white"
     tools:context=".presentation.nav_animals.AnimalsPage">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvMyAnimals"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-        app:spanCount="2"
-        tools:listitem="@layout/item_my_animals" />
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="15dp">
 
-<!--    <com.google.android.material.floatingactionbutton.FloatingActionButton-->
-<!--        android:id="@+id/fab"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginEnd="15dp"-->
-<!--        android:layout_marginBottom="45dp"-->
-<!--        android:contentDescription="@string/app_name"-->
-<!--        android:src="@drawable/ic_add_animals"-->
-<!--        app:backgroundTint="@color/icon_color"-->
-<!--        app:borderWidth="1dp"-->
-<!--        app:fabSize="auto"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintRight_toRightOf="parent" />-->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvMyAnimals"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:spanCount="2"
+            tools:listitem="@layout/item_my_animals" />
+    </LinearLayout>
 
 </androidx.core.widget.NestedScrollView>

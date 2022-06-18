@@ -5,15 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
+    android:overScrollMode="never"
     tools:context=".presentation.nav_profile.ProfilePage">
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/clProfile"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:paddingBottom="50dp"
-        android:visibility="visible">
+        android:layout_height="wrap_content"
+        android:paddingBottom="150dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayoutProfile"
@@ -62,13 +62,14 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <TextView
-            android:id="@+id/profileName"
+            android:id="@+id/tvProfileName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="21dp"
             android:layout_marginTop="24dp"
-            android:text="A.B.Bozorov"
+            android:hint="@string/name"
             android:textColor="#42445A"
+            android:textColorHint="#A19C9C"
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -83,9 +84,12 @@
             android:layout_marginHorizontal="21dp"
             android:layout_marginTop="60dp"
             app:cardCornerRadius="5dp"
+            app:layout_constraintBottom_toTopOf="@id/cvProfileEmail"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/profileName">
+            app:layout_constraintTop_toBottomOf="@id/tvProfileName"
+            app:layout_constraintVertical_bias="0"
+            app:layout_constraintVertical_chainStyle="packed">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -106,7 +110,9 @@
                     android:layout_height="match_parent"
                     android:layout_weight="9.3"
                     android:background="#EFF4FA"
+                    android:enabled="false"
                     android:hint="@string/name"
+                    android:imeOptions="actionNext"
                     android:paddingStart="20dp"
                     android:paddingEnd="10dp"
                     android:singleLine="true"
@@ -114,11 +120,13 @@
                     android:textSize="15sp" />
 
                 <ImageView
+                    android:id="@+id/imgEditPencil"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginEnd="12dp"
                     android:layout_weight="0.5"
-                    android:src="@drawable/ic_img_edit_pencil" />
+                    android:src="@drawable/ic_img_edit_pencil"
+                    android:visibility="visible" />
 
             </LinearLayout>
 
@@ -131,6 +139,7 @@
             android:layout_marginHorizontal="21dp"
             android:layout_marginTop="10dp"
             app:cardCornerRadius="5dp"
+            app:layout_constraintBottom_toTopOf="@id/cvProfilePhoneNumber"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cvProfileName">
@@ -154,7 +163,9 @@
                     android:layout_height="match_parent"
                     android:layout_weight="9.8"
                     android:background="#EFF4FA"
+                    android:enabled="false"
                     android:hint="@string/email"
+                    android:imeOptions="actionNext"
                     android:paddingStart="20dp"
                     android:paddingEnd="10dp"
                     android:singleLine="true"
@@ -195,7 +206,9 @@
                     android:layout_height="match_parent"
                     android:layout_weight="9.8"
                     android:background="#EFF4FA"
+                    android:enabled="false"
                     android:hint="@string/phone_number"
+                    android:imeOptions="actionNext"
                     android:paddingStart="20dp"
                     android:paddingEnd="10dp"
                     android:singleLine="true"
@@ -212,7 +225,7 @@
             android:layout_marginHorizontal="21dp"
             android:layout_marginTop="10dp"
             app:cardCornerRadius="5dp"
-            app:layout_constraintBottom_toTopOf="@id/btnProfileSave"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cvProfilePhoneNumber">
@@ -235,8 +248,10 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="9.8"
-                    android:background="#EFF4FA"
+                    android:background="@android:color/transparent"
+                    android:enabled="false"
                     android:hint="@string/address"
+                    android:imeOptions="actionDone"
                     android:paddingStart="20dp"
                     android:paddingEnd="10dp"
                     android:singleLine="true"
@@ -251,14 +266,15 @@
             android:id="@+id/btnProfileSave"
             android:layout_width="170dp"
             android:layout_height="32dp"
-            android:layout_marginTop="50dp"
-            android:layout_marginBottom="5dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="15dp"
             android:clickable="true"
             android:focusable="true"
-            android:visibility="visible"
+            android:visibility="gone"
             app:cardBackgroundColor="#70ADEE"
             app:cardCornerRadius="8dp"
             app:cardElevation="0dp"
+            app:layout_constraintVertical_bias="1"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"

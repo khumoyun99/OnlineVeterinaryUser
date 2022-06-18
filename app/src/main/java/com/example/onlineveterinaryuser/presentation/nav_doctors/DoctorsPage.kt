@@ -9,24 +9,34 @@ import by.kirich1409.viewbindingdelegate.internal.findRootView
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.onlineveterinaryuser.R
 import com.example.onlineveterinaryuser.databinding.PageDoctorsBinding
+import com.example.onlineveterinaryuser.presentation.activity.model.Account
 import com.example.onlineveterinaryuser.presentation.nav_doctors.adapters.DoctorsRvAdapter
 import com.example.onlineveterinaryuser.presentation.nav_doctors.models.Doctor
 import com.example.onlineveterinaryuser.utils.scope
+import com.example.onlineveterinaryuser.utils.showToast
 import com.google.android.material.appbar.AppBarLayout
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.*
 
 class DoctorsPage:Fragment(R.layout.page_doctors) {
 
     private val binding by viewBinding(PageDoctorsBinding::bind)
     private lateinit var doctorsRvAdapter : DoctorsRvAdapter
     private lateinit var doctorsList : ArrayList<Doctor>
+    private lateinit var firebaseAuth : FirebaseAuth
+    private lateinit var firebaseDatabase : FirebaseDatabase
+    private lateinit var reference:DatabaseReference
 
     override fun onViewCreated(view : View , savedInstanceState : Bundle?) = binding.scope {
         super.onViewCreated(view , savedInstanceState)
 
         activity?.window?.setBackgroundDrawableResource(R.color.white)
+        doctorsList = ArrayList()
+        firebaseAuth = FirebaseAuth.getInstance()
+        firebaseDatabase = FirebaseDatabase.getInstance()
+        reference = firebaseDatabase.getReference("doctors")
 
-        loadData()
         doctorsRvAdapter = DoctorsRvAdapter(object:DoctorsRvAdapter.OnDoctorsTouchListener {
             override fun onClick(doctor : Doctor) {
                 findNavController().navigate(DoctorsPageDirections.actionDoctorsPageToInfoDoctorScreen())
@@ -46,26 +56,36 @@ class DoctorsPage:Fragment(R.layout.page_doctors) {
             }
         })
 
-        rvDoctors.setHasFixedSize(true)
-        doctorsRvAdapter.muSubmitList(doctorsList)
-        rvDoctors.adapter = doctorsRvAdapter
+        reference.addValueEventListener(object :ValueEventListener{
+            override fun onDataChange(snapshot : DataSnapshot) {
+                doctorsList.clear()
+                val children = snapshot.children
+                for (child in children) {
+                    val key  = child.key
+                    val value = child.value
+                    val account = child.getValue(Account::class.java)
+                    doctorsList.add(
+                        Doctor(
+                            id = account?.uid.toString(),
+                            name = account?.displayName.toString(),
+                            image = account?.photoUrl.toString(),
+                            rating = 4.5f,
+                            profession = getString(R.string.veterinary)
+                        )
+                    )
+                }
+                doctorsRvAdapter.muSubmitList(doctorsList)
+                rvDoctors.setHasFixedSize(true)
+                rvDoctors.adapter = doctorsRvAdapter
+                doctorsRvAdapter.notifyDataSetChanged()
+            }
 
-    }
+            override fun onCancelled(error : DatabaseError) {
+                showToast(error.message)
+            }
+        })
 
-    private fun loadData() {
-        doctorsList = ArrayList()
 
-        for (i in 0 until 10) {
-            doctorsList.add(
-                Doctor(
-                    i ,
-                    name = "Malika" ,
-                    image = R.drawable.doctors1 ,
-                    rating = 4.5f ,
-                    profession = "Veterinary"
-                )
-            )
-        }
 
     }
 

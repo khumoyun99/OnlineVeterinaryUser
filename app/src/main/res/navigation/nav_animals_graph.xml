@@ -26,5 +26,9 @@
         android:id="@+id/editAnimalsScreen"
         android:name="com.example.onlineveterinaryuser.presentation.nav_animals.screens.EditAnimalsScreen"
         android:label="Edit"
-        tools:layout="@layout/screen_edit_animals" />
+        tools:layout="@layout/screen_edit_animals" >
+        <argument
+            android:name="MyAnimals"
+            app:argType="com.example.onlineveterinaryuser.presentation.nav_animals.models.MyAnimal" />
+    </fragment>
 </navigation>

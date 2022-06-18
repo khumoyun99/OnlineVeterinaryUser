@@ -16,7 +16,7 @@ import com.google.android.material.shape.CornerFamily
 import com.google.android.material.shape.MaterialShapeDrawable
 
 
-class MainActivity:AppCompatActivity() {
+class MainActivity:AppCompatActivity(R.layout.activity_main) {
 
     private lateinit var binding : ActivityMainBinding
     private lateinit var appBarConfiguration : AppBarConfiguration

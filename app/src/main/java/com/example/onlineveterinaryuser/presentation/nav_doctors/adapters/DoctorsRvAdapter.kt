@@ -3,8 +3,10 @@ package com.example.onlineveterinaryuser.presentation.nav_doctors.adapters
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.onlineveterinaryuser.R
 import com.example.onlineveterinaryuser.databinding.ItemRvDoctorsBinding
 import com.example.onlineveterinaryuser.presentation.nav_doctors.models.Doctor
+import com.squareup.picasso.Picasso
 
 class DoctorsRvAdapter(val listener : OnDoctorsTouchListener):
     RecyclerView.Adapter<DoctorsRvAdapter.MyDoctorsViewHolder>() {
@@ -13,7 +15,6 @@ class DoctorsRvAdapter(val listener : OnDoctorsTouchListener):
 
     fun muSubmitList(doctorList : ArrayList<Doctor>) {
         doctorsList.apply {
-            clear()
             addAll(doctorList)
         }
     }
@@ -36,10 +37,11 @@ class DoctorsRvAdapter(val listener : OnDoctorsTouchListener):
         fun onBind(doctor : Doctor) {
             itemRvDoctorsBinding.apply {
                 tvDoctorsName.text = doctor.name
-                imgDoctorPhoto.setImageResource(doctor.image)
+                Picasso.get().load(doctor.image).error(R.drawable.ic_profile_person)
+                    .into(imgDoctorPhoto)
                 tvDoctorsProfession.text = doctor.profession
                 ratingBarDoctor.rating = doctor.rating
-                tvRatingNumber.text = "(25)"
+                tvRatingNumber.text = "(10)"
             }
 
         }

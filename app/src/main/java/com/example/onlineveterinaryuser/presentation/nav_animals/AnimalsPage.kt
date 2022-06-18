@@ -13,33 +13,60 @@ import com.example.onlineveterinaryuser.databinding.PageAnimalsBinding
 import com.example.onlineveterinaryuser.presentation.nav_animals.adapters.MyAnimalsRvAdapter
 import com.example.onlineveterinaryuser.presentation.nav_animals.models.MyAnimal
 import com.example.onlineveterinaryuser.utils.scope
+import com.example.onlineveterinaryuser.utils.showToast
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.*
 
 class AnimalsPage:Fragment(R.layout.page_animals) {
 
     private val binding by viewBinding(PageAnimalsBinding::bind)
     private lateinit var myAnimalsRvAdapter : MyAnimalsRvAdapter
     private lateinit var animalsList : ArrayList<MyAnimal>
+    private lateinit var firebaseAuth : FirebaseAuth
+    private lateinit var firebaseDatabase : FirebaseDatabase
+    private lateinit var reference : DatabaseReference
 
     override fun onViewCreated(view : View , savedInstanceState : Bundle?) = binding.scope {
         super.onViewCreated(view , savedInstanceState)
         setHasOptionsMenu(true)
 
+        animalsList = ArrayList()
+
+        firebaseAuth = FirebaseAuth.getInstance()
+        firebaseDatabase = FirebaseDatabase.getInstance()
+        reference =
+            firebaseDatabase.getReference("users/${firebaseAuth.currentUser?.uid}/myAnimals")
+
         myAnimalsRvAdapter = MyAnimalsRvAdapter(object:MyAnimalsRvAdapter.OnMyAnimalsTouchListener {
             override fun onItemClick(animal : MyAnimal) {
-                findNavController().navigate(AnimalsPageDirections.actionAnimalsPageToEditAnimalsScreen())
+                findNavController().navigate(
+                    AnimalsPageDirections.actionAnimalsPageToEditAnimalsScreen(
+                        animal
+                    )
+                )
             }
         })
 
-//        fab.setOnClickListener {
-//            findNavController().navigate(AnimalsPageDirections.actionAnimalsPageToAddAnimalScreen())
-//        }
+        reference.addValueEventListener(object:ValueEventListener {
+            override fun onDataChange(snapshot : DataSnapshot) {
+                animalsList.clear()
+                val children = snapshot.children
+                for (child in children) {
+                    val myAnimal = child.getValue(MyAnimal::class.java)
+                    if (myAnimal != null) {
+                        animalsList.add(myAnimal)
+                    }
+                }
+                myAnimalsRvAdapter.mySubmitList(animalsList)
+                rvMyAnimals.setHasFixedSize(true)
+                rvMyAnimals.adapter = myAnimalsRvAdapter
+                myAnimalsRvAdapter.notifyDataSetChanged()
+            }
 
-        loadData()
-
-        rvMyAnimals.setHasFixedSize(true)
-        myAnimalsRvAdapter.mySubmitList(animalsList)
-        rvMyAnimals.adapter = myAnimalsRvAdapter
-
+            override fun onCancelled(error : DatabaseError) {
+                showToast(error.message)
+            }
+        })
 
     }
 
@@ -55,14 +82,6 @@ class AnimalsPage:Fragment(R.layout.page_animals) {
             }
         }
         return super.onOptionsItemSelected(item)
-    }
-
-    private fun loadData() {
-        animalsList = ArrayList()
-
-        for (i in 0 until 10) {
-            animalsList.add(MyAnimal(i , "Tuzik" , R.drawable.only_dog))
-        }
     }
 
 }

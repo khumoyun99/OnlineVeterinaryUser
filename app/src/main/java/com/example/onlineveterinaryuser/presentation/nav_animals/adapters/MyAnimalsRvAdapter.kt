@@ -13,7 +13,6 @@ class MyAnimalsRvAdapter(val listener : OnMyAnimalsTouchListener):
 
     fun mySubmitList(animalList : ArrayList<MyAnimal>) {
         animalsList.apply {
-            clear()
             addAll(animalList)
         }
     }
@@ -29,7 +28,7 @@ class MyAnimalsRvAdapter(val listener : OnMyAnimalsTouchListener):
 
         fun onBind(animal : MyAnimal) {
             itemMyAnimalsBinding.apply {
-                imgMyAnimals.setBackgroundResource(animal.img)
+//                imgMyAnimals.setBackgroundResource(animal.photoUrl)
                 tvMyAnimalsName.text = animal.name
             }
 

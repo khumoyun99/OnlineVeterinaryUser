@@ -133,7 +133,9 @@ dependencies {
   //  implementation "com.vanniktech:emoji:0.15.0"
     implementation 'com.vanniktech:emoji-google:0.7.0'
 
-
-
+    /**
+     * Picasso
+     */
+    implementation 'com.squareup.picasso:picasso:2.71828'
 
 }
