@@ -33,10 +33,12 @@
         app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
     <com.google.android.material.bottomappbar.BottomAppBar
+        android:id="@+id/bottomAppBar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_gravity="bottom"
         app:fabCradleMargin="10dp"
+        android:visibility="visible"
         app:fabCradleRoundedCornerRadius="20dp"
         app:fabCradleVerticalOffset="8dp">
 
@@ -44,15 +46,27 @@
             android:id="@+id/bottomNavigationView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginEnd="16dp"
+            android:visibility="visible"
             android:background="@android:color/transparent"
             app:elevation="0dp"
-            app:labelVisibilityMode="auto"
-            android:layout_marginEnd="16dp"
             app:itemIconTint="@color/bottom_navigation_selector"
             app:itemTextColor="@color/bottom_navigation_selector"
+            app:labelVisibilityMode="auto"
             app:menu="@menu/bottom_nav_view_menu" />
 
     </com.google.android.material.bottomappbar.BottomAppBar>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#2196F3"
+        android:visibility="visible"
+        app:backgroundTint="#2196F3"
+        android:src="@drawable/ic_nav_bottom_doctor"
+        app:elevation="1dp"
+        app:layout_anchor="@id/bottomAppBar" />
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

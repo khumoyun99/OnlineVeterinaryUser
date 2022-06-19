@@ -11,6 +11,7 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.onlineveterinaryuser.databinding.ActivityMainBinding
 import com.example.onlineveterinaryuser.utils.UserBottomBackStackController
+import com.google.android.material.bottomappbar.BottomAppBar
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.shape.CornerFamily
 import com.google.android.material.shape.MaterialShapeDrawable
@@ -51,6 +52,28 @@ class MainActivity:AppCompatActivity(R.layout.activity_main) {
 
     private fun setupBottomNavigationBar() {
         val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottomNavigationView)
+        val bottomAppBar = findViewById<BottomAppBar>(R.id.bottomAppBar)
+
+        bottomNavigationView.background = null
+        bottomNavigationView.menu.getItem(2).isEnabled = false
+
+
+        val bottomAppBarBackground : MaterialShapeDrawable =
+            bottomAppBar.background as MaterialShapeDrawable
+
+
+        bottomAppBarBackground.shapeAppearanceModel =
+            bottomAppBarBackground.shapeAppearanceModel.toBuilder().setTopLeftCornerSize(
+                30F
+            ).setTopRightCornerSize(
+                30F
+            ).build()
+
+        binding.fab.setOnClickListener {
+            bottomNavigationView.menu.getItem(2).isEnabled = true
+            bottomNavigationView.selectedItemId = R.id.nav_doctors_graph
+        }
+
 
         val navGraphsIds = listOf(
             R.navigation.nav_home_graph ,

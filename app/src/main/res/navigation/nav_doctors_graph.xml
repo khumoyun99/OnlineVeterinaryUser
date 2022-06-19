@@ -20,7 +20,7 @@
     <fragment
         android:id="@+id/infoDoctorScreen"
         android:name="com.example.onlineveterinaryuser.presentation.nav_doctors.screens.InfoDoctorScreen"
-        android:label="Doctor"
+        android:label="Doctor info"
         tools:layout="@layout/screen_info_doctor" />
     <fragment
         android:id="@+id/messageDoctorScreen"

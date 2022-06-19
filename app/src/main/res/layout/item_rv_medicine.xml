@@ -22,7 +22,7 @@
             android:layout_width="125dp"
             android:layout_height="wrap_content"
             android:scaleType="centerCrop"
-            android:src="@drawable/img_dogs_otoclean_pr"
+            android:src="@drawable/img_default_medicine_photo"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="@id/guidelineMid"

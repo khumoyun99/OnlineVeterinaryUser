@@ -12,10 +12,14 @@ import com.example.onlineveterinaryuser.databinding.PageDoctorsBinding
 import com.example.onlineveterinaryuser.presentation.activity.model.Account
 import com.example.onlineveterinaryuser.presentation.nav_doctors.adapters.DoctorsRvAdapter
 import com.example.onlineveterinaryuser.presentation.nav_doctors.models.Doctor
+import com.example.onlineveterinaryuser.utils.gone
 import com.example.onlineveterinaryuser.utils.scope
 import com.example.onlineveterinaryuser.utils.showToast
+import com.example.onlineveterinaryuser.utils.visible
 import com.google.android.material.appbar.AppBarLayout
+import com.google.android.material.bottomappbar.BottomAppBar
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 
@@ -26,7 +30,7 @@ class DoctorsPage:Fragment(R.layout.page_doctors) {
     private lateinit var doctorsList : ArrayList<Doctor>
     private lateinit var firebaseAuth : FirebaseAuth
     private lateinit var firebaseDatabase : FirebaseDatabase
-    private lateinit var reference:DatabaseReference
+    private lateinit var reference : DatabaseReference
 
     override fun onViewCreated(view : View , savedInstanceState : Bundle?) = binding.scope {
         super.onViewCreated(view , savedInstanceState)
@@ -39,13 +43,34 @@ class DoctorsPage:Fragment(R.layout.page_doctors) {
 
         doctorsRvAdapter = DoctorsRvAdapter(object:DoctorsRvAdapter.OnDoctorsTouchListener {
             override fun onClick(doctor : Doctor) {
+                val bottomNav =
+                    findRootView(requireActivity()).findViewById<BottomNavigationView>(R.id.bottomNavigationView)
+                bottomNav.gone()
+
+                val bottomAppBar =
+                    findRootView(requireActivity()).findViewById<BottomAppBar>(R.id.bottomAppBar)
+                bottomAppBar.gone()
+
+                val fab =
+                    findRootView(requireActivity()).findViewById<FloatingActionButton>(R.id.fab)
+                fab.gone()
+
                 findNavController().navigate(DoctorsPageDirections.actionDoctorsPageToInfoDoctorScreen())
             }
 
             override fun onMessageClick(doctor : Doctor) {
                 val bottomNav =
                     findRootView(requireActivity()).findViewById<BottomNavigationView>(R.id.bottomNavigationView)
-                bottomNav.visibility = View.GONE
+                bottomNav.gone()
+
+                val bottomAppBar =
+                    findRootView(requireActivity()).findViewById<BottomAppBar>(R.id.bottomAppBar)
+                bottomAppBar.gone()
+
+                val fab =
+                    findRootView(requireActivity()).findViewById<FloatingActionButton>(R.id.fab)
+                fab.gone()
+
 
                 findNavController().navigate(DoctorsPageDirections.actionDoctorsPageToMessageDoctorScreen())
 
@@ -56,20 +81,18 @@ class DoctorsPage:Fragment(R.layout.page_doctors) {
             }
         })
 
-        reference.addValueEventListener(object :ValueEventListener{
+        reference.addValueEventListener(object:ValueEventListener {
             override fun onDataChange(snapshot : DataSnapshot) {
                 doctorsList.clear()
                 val children = snapshot.children
                 for (child in children) {
-                    val key  = child.key
-                    val value = child.value
                     val account = child.getValue(Account::class.java)
                     doctorsList.add(
                         Doctor(
-                            id = account?.uid.toString(),
-                            name = account?.displayName.toString(),
-                            image = account?.photoUrl.toString(),
-                            rating = 4.5f,
+                            id = account?.uid.toString() ,
+                            name = account?.displayName.toString() ,
+                            image = account?.photoUrl.toString() ,
+                            rating = 4.5f ,
                             profession = getString(R.string.veterinary)
                         )
                     )
@@ -86,13 +109,20 @@ class DoctorsPage:Fragment(R.layout.page_doctors) {
         })
 
 
-
     }
 
     override fun onResume() {
         super.onResume()
         val bottomNav =
             findRootView(requireActivity()).findViewById<BottomNavigationView>(R.id.bottomNavigationView)
-        bottomNav.visibility = View.VISIBLE
+        bottomNav.visible()
+
+        val bottomAppBar =
+            findRootView(requireActivity()).findViewById<BottomAppBar>(R.id.bottomAppBar)
+        bottomAppBar.visible()
+
+        val fab = findRootView(requireActivity()).findViewById<FloatingActionButton>(R.id.fab)
+        fab.visible()
+
     }
 }
