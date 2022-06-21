@@ -77,7 +77,7 @@ class LoginScreen:Fragment(R.layout.screen_login) {
             firebaseAuthWithGoogle(account.idToken ?: "")
 
         } catch (e : ApiException) {
-            showToast("E r r o r 1: $e")
+            showToast("E r r o r : ${e.message}")
         }
 
     }
@@ -90,37 +90,43 @@ class LoginScreen:Fragment(R.layout.screen_login) {
                     val user = auth.currentUser
                     reference.addListenerForSingleValueEvent(object:ValueEventListener {
                         override fun onDataChange(snapshot : DataSnapshot) {
-                            val children = snapshot.children
-                            var isHave = false
-                            for (child in children) {
-                                if (child.key == user?.uid) {
-                                    isHave = true
-                                    break
-                                }
-                            }
-
-                            if (!isHave) {
-                                val account = Account(
-                                    uid = user?.uid.toString() ,
-                                    displayName = user?.displayName.toString() ,
-                                    email = user?.email.toString() ,
-                                    phoneNumber = user?.phoneNumber.toString() ,
-                                    photoUrl = user?.photoUrl.toString()
-                                )
-                                reference.child(user?.uid ?: "").setValue(account)
-                                    .addOnCompleteListener {
-                                        if (it.isSuccessful) {
-                                            val intent =
-                                                Intent(requireActivity() , MainActivity::class.java)
-                                            startActivity(intent)
-                                        } else {
-                                            showToast("${it.exception?.message}")
-                                        }
+                            try {
+                                val children = snapshot.children
+                                var isHave = false
+                                for (child in children) {
+                                    if (child.key == user?.uid) {
+                                        isHave = true
+                                        break
                                     }
-                            } else {
-                                val intent =
-                                    Intent(requireActivity() , MainActivity::class.java)
-                                startActivity(intent)
+                                }
+                                if (!isHave) {
+                                    val account = Account(
+                                        uid = user?.uid.toString() ,
+                                        displayName = user?.displayName.toString() ,
+                                        email = user?.email.toString() ,
+                                        phoneNumber = user?.phoneNumber.toString() ,
+                                        photoUrl = user?.photoUrl.toString()
+                                    )
+                                    reference.child(user?.uid ?: "").setValue(account)
+                                        .addOnCompleteListener {
+                                            if (it.isSuccessful) {
+                                                val intent =
+                                                    Intent(
+                                                        requireActivity() ,
+                                                        MainActivity::class.java
+                                                    )
+                                                startActivity(intent)
+                                            } else {
+                                                showToast("${it.exception?.message}")
+                                            }
+                                        }
+                                } else {
+                                    val intent =
+                                        Intent(requireActivity() , MainActivity::class.java)
+                                    startActivity(intent)
+                                }
+                            } catch (e : Exception) {
+
                             }
                         }
 
@@ -130,7 +136,7 @@ class LoginScreen:Fragment(R.layout.screen_login) {
                     })
 
                 } else {
-                    showToast("error2:${task.exception?.message.toString()}")
+                    showToast(task.exception?.message.toString())
                 }
             }
     }

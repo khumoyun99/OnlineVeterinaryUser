@@ -17,10 +17,7 @@ import com.example.onlineveterinaryuser.utils.showToast
 import com.example.onlineveterinaryuser.utils.visible
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
-import com.google.firebase.database.ktx.getValue
 import com.squareup.picasso.Picasso
-import java.lang.Exception
-import kotlin.math.acos
 
 class ProfilePage:Fragment(R.layout.page_profile) {
 
@@ -40,15 +37,14 @@ class ProfilePage:Fragment(R.layout.page_profile) {
 
         reference.addValueEventListener(object:ValueEventListener {
             override fun onDataChange(snapshot : DataSnapshot) {
-                val children = snapshot.children
-                for (child in children) {
-                    val user = child.getValue(Account::class.java)
-                    if (user != null && user.uid == firebaseAuth.uid) {
-                        account = user
-                    }
-                }
-
                 try {
+                    val children = snapshot.children
+                    for (child in children) {
+                        val user = child.getValue(Account::class.java)
+                        if (user != null && user.uid == firebaseAuth.uid) {
+                            account = user
+                        }
+                    }
                     Picasso.get().load(account.photoUrl).error(R.drawable.ic_profile_person)
                         .placeholder(R.drawable.ic_profile_person).into(imgProfileImage)
                     tvProfileName.text = account.displayName

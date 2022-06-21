@@ -4,9 +4,9 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginStart="8dp"
-    android:layout_marginTop="2.5dp"
+    android:layout_marginTop="0dp"
     android:layout_marginEnd="30dp"
-    android:layout_marginBottom="2.5dp"
+    android:layout_marginBottom="5dp"
     android:maxHeight="500dp"
     android:orientation="vertical">
 
@@ -29,7 +29,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:justificationMode="inter_word"
-                android:text="a"
                 android:textColor="#5E3864"
                 android:textSize="16sp" />
 
@@ -38,7 +37,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-                android:text="15:59"
+                android:text="@string/time"
                 android:textColor="@color/black"
                 android:textSize="12sp"
                 app:layout_constraintHorizontal_bias="1"

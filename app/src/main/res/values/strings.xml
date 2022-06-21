@@ -35,7 +35,7 @@ Eslatib o‘tamiz, 25-aprel kuni Makron mamlakatdagi prezidentlik saylovlarida g
     <string name="message">Message</string>
     <string name="ro_yhatdan_o_tish">Ro\'yhatdan o\'tish</string>
     <string name="password">Password</string>
-    <string name="login">Login</string>
+    <string name="login">User Login</string>
     <string name="log_in">Log in</string>
     <string name="dont_have_an_account_sign_up">Don\'t have an account? <b>Sign Up</b></string>
     <string name="log_in_with_google">Log in with Google</string>
@@ -54,4 +54,12 @@ Eslatib o‘tamiz, 25-aprel kuni Makron mamlakatdagi prezidentlik saylovlarida g
     <string name="dogs">Dogs</string>
     <string name="cats">Cats</string>
     <string name="working_time">Working time</string>
+    <string name="medicine_name">Medicine name</string>
+    <string name="medicine_description">Medicine description</string>
+    <string name="doctors_name">Doctors name</string>
+    <string name="narxi">Narxi</string>
+    <string name="price">Price</string>
+    <string name="send">Send</string>
+    <string name="enter_message">Enter Message</string>
+    <string name="time">Time</string>
 </resources>

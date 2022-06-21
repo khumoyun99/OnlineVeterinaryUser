@@ -28,10 +28,11 @@ class AddAnimalScreen:Fragment(R.layout.screen_add_animal) {
         firebaseDatabase = FirebaseDatabase.getInstance()
         reference =
             firebaseDatabase.getReference("users/${firebaseAuth.currentUser?.uid}/myAnimals")
-        val key = reference.push().key
+
 
 
         btnAddAnimal.setOnClickListener {
+            val key = reference.push().key
             val type = etAddType.text.toString()
             val name = etAddName.text.toString()
             val age = etAddAge.text.toString()

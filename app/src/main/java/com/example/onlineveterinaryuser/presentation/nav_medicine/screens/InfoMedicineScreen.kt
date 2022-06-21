@@ -22,10 +22,10 @@ class InfoMedicineScreen:Fragment(R.layout.screen_info_medicine) {
 
         val toolbar = findRootView(requireActivity()).findViewById(R.id.main_toolbar) as Toolbar
         toolbar.title = args.medicine?.name
-        imgMedicineInfoImage.setImageResource(args.medicine!!.imageUrl)
+//        imgMedicineInfoImage.setImageResource(args.medicine!!.imageUrl)
         tvMedicineInfoDescription.text = args.medicine?.description
         tvMedicinesInfoDoctorsName.text = args.medicine?.doctorsName
-        tvMedicineInfoPrise.text = args.medicine?.price
+        tvMedicineInfoPrise.text = "${args.medicine?.price.toString()} so'm"
 
         btnOrder.setOnClickListener {
             showToast("Order")

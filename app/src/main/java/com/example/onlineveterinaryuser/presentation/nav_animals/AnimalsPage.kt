@@ -16,6 +16,7 @@ import com.example.onlineveterinaryuser.utils.scope
 import com.example.onlineveterinaryuser.utils.showToast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
+import java.lang.Exception
 
 class AnimalsPage:Fragment(R.layout.page_animals) {
 
@@ -49,18 +50,22 @@ class AnimalsPage:Fragment(R.layout.page_animals) {
 
         reference.addValueEventListener(object:ValueEventListener {
             override fun onDataChange(snapshot : DataSnapshot) {
-                animalsList.clear()
-                val children = snapshot.children
-                for (child in children) {
-                    val myAnimal = child.getValue(MyAnimal::class.java)
-                    if (myAnimal != null) {
-                        animalsList.add(myAnimal)
+                try {
+                    animalsList.clear()
+                    val children = snapshot.children
+                    for (child in children) {
+                        val myAnimal = child.getValue(MyAnimal::class.java)
+                        if (myAnimal != null) {
+                            animalsList.add(myAnimal)
+                        }
                     }
+                    myAnimalsRvAdapter.mySubmitList(animalsList)
+                    rvMyAnimals.setHasFixedSize(true)
+                    rvMyAnimals.adapter = myAnimalsRvAdapter
+                    myAnimalsRvAdapter.notifyDataSetChanged()
+                } catch (e : Exception) {
+                    showToast(e.message.toString())
                 }
-                myAnimalsRvAdapter.mySubmitList(animalsList)
-                rvMyAnimals.setHasFixedSize(true)
-                rvMyAnimals.adapter = myAnimalsRvAdapter
-                myAnimalsRvAdapter.notifyDataSetChanged()
             }
 
             override fun onCancelled(error : DatabaseError) {

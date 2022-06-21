@@ -48,7 +48,7 @@ class InfoDoctorScreen:Fragment(R.layout.screen_info_doctor) {
     private fun loadData() {
         workList = ArrayList()
         educationList = ArrayList()
-        for (i in 0 until 3) {
+        for (i in 0 until 1) {
             workList.add(
                 Work(
                     id = i ,
@@ -73,9 +73,9 @@ class InfoDoctorScreen:Fragment(R.layout.screen_info_doctor) {
 
     override fun onResume() {
         super.onResume()
-        val bottomNav =
-            findRootView(requireActivity()).findViewById<BottomNavigationView>(R.id.bottomNavigationView)
-        bottomNav.visibility = View.GONE
+//        val bottomNav =
+//            findRootView(requireActivity()).findViewById<BottomNavigationView>(R.id.bottomNavigationView)
+//        bottomNav.visibility = View.GONE
     }
 
 }

@@ -29,9 +29,6 @@ class MainActivity:AppCompatActivity(R.layout.activity_main) {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        window.setBackgroundDrawableResource(R.color.white)
-
-
 
         setSupportActionBar(binding.mainToolbar)
 

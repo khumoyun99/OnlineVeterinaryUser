@@ -2,6 +2,8 @@ package com.example.onlineveterinaryuser.presentation.nav_doctors.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.recyclerview.widget.AsyncListDiffer
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.onlineveterinaryuser.R
 import com.example.onlineveterinaryuser.databinding.ItemRvDoctorsBinding
@@ -11,25 +13,35 @@ import com.squareup.picasso.Picasso
 class DoctorsRvAdapter(val listener : OnDoctorsTouchListener):
     RecyclerView.Adapter<DoctorsRvAdapter.MyDoctorsViewHolder>() {
 
-    private val doctorsList = mutableListOf<Doctor>()
 
     fun muSubmitList(doctorList : ArrayList<Doctor>) {
-        doctorsList.apply {
-            addAll(doctorList)
+        doctorsList.submitList(doctorList)
+
+    }
+
+    val diff_call_back = object:DiffUtil.ItemCallback<Doctor>() {
+        override fun areItemsTheSame(oldItem : Doctor , newItem : Doctor) : Boolean {
+            return oldItem.id == newItem.id
+        }
+
+        override fun areContentsTheSame(oldItem : Doctor , newItem : Doctor) : Boolean {
+            return oldItem == newItem
         }
     }
+
+    private val doctorsList = AsyncListDiffer(this , diff_call_back)
 
     inner class MyDoctorsViewHolder(private val itemRvDoctorsBinding : ItemRvDoctorsBinding):
         RecyclerView.ViewHolder(itemRvDoctorsBinding.root) {
 
         init {
             itemView.setOnClickListener {
-                listener.onClick(doctorsList[absoluteAdapterPosition])
+                listener.onClick(doctorsList.currentList[absoluteAdapterPosition])
             }
 
             itemRvDoctorsBinding.apply {
                 imgSendImageIcon.setOnClickListener {
-                    listener.onMessageClick(doctorsList[absoluteAdapterPosition])
+                    listener.onMessageClick(doctorsList.currentList[absoluteAdapterPosition])
                 }
             }
         }
@@ -43,7 +55,6 @@ class DoctorsRvAdapter(val listener : OnDoctorsTouchListener):
                 ratingBarDoctor.rating = doctor.rating
                 tvRatingNumber.text = "(10)"
             }
-
         }
     }
 
@@ -58,11 +69,11 @@ class DoctorsRvAdapter(val listener : OnDoctorsTouchListener):
     }
 
     override fun onBindViewHolder(holder : MyDoctorsViewHolder , position : Int) {
-        holder.onBind(doctorsList[position])
+        holder.onBind(doctorsList.currentList[position])
     }
 
     override fun getItemCount() : Int {
-        return doctorsList.size
+        return doctorsList.currentList.size
     }
 
     interface OnDoctorsTouchListener {

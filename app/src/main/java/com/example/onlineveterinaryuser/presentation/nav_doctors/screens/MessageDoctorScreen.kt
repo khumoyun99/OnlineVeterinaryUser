@@ -17,37 +17,11 @@ import com.example.onlineveterinaryuser.utils.showToast
 class MessageDoctorScreen:Fragment(R.layout.screen_message_doctor) {
 
     private val binding by viewBinding(ScreenMessageDoctorBinding::bind)
-    private lateinit var userDoctorsRvAdapter : UserDoctorRvMessageAdapter
-    private lateinit var allMessageList : ArrayList<String>
 
     @SuppressLint("NotifyDataSetChanged")
     override fun onViewCreated(view : View , savedInstanceState : Bundle?) = binding.scope {
         super.onViewCreated(view , savedInstanceState)
 
-        activity?.window?.setBackgroundDrawableResource(R.drawable.background_message1)
 
-        allMessageList = ArrayList()
-        allMessageList.add("Hello1")
-        allMessageList.add("Hello2")
-        userDoctorsRvAdapter = UserDoctorRvMessageAdapter()
-        userDoctorsRvAdapter.mySubmitList(allMessageList)
-        rvMessage.apply {
-            setHasFixedSize(true)
-            adapter = userDoctorsRvAdapter
-        }
-
-
-        imgSend.setOnClickListener {
-            val message = etMessage.text.toString()
-            if (message.isNotEmpty()) {
-                allMessageList.add(message)
-                userDoctorsRvAdapter.mySubmitList(allMessageList)
-                userDoctorsRvAdapter.notifyDataSetChanged()
-                rvMessage.scrollToPosition(userDoctorsRvAdapter.itemCount - 1)
-                etMessage.text.clear()
-            } else {
-                showToast("Empty")
-            }
-        }
     }
 }

@@ -6,7 +6,7 @@ class Medicines:Serializable {
     var id : String? = null
     var name : String? = null
     var description : String? = null
-    var price : String? = null
+    var price : Int? = 0
     var doctorsName : String? = null
     var imageUrl : String? = null
 
@@ -16,7 +16,7 @@ class Medicines:Serializable {
         id : String? ,
         name : String? ,
         description : String? ,
-        price : String? ,
+        price : Int? ,
         doctorsName : String? ,
         imageUrl : String?
     ) {
